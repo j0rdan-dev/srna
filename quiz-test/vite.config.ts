@@ -8,6 +8,13 @@ export default defineConfig(({ mode }) => ({
   base: "/srna/quiz-test/",
   build: {
     outDir: "docs",
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash][extname]'
+      }
+    }
   },
   server: {
     host: "::",
