@@ -1,0 +1,68 @@
+{
+  "Questions": [
+    {
+      "Question": "Колку планети има во нашиот Сончев систем?",
+      "OptionA": "7",
+      "OptionB": "8",
+      "OptionC": "9",
+      "OptionD": "10",
+      "CorrectAnswer": "OptionB"
+    },
+    {
+      "Question": "Која е најблиската ѕвезда до Земјата?",
+      "OptionA": "Сириус",
+      "OptionB": "Алфа Кентаури",
+      "OptionC": "Сонцето",
+      "OptionD": "Бетелгез",
+      "CorrectAnswer": "OptionC"
+    },
+    {
+      "Question": "Која планета е најголема во Сончевиот систем?",
+      "OptionA": "Сатурн",
+      "OptionB": "Нептун",
+      "OptionC": "Земја",
+      "OptionD": "Јупитер",
+      "CorrectAnswer": "OptionD"
+    },
+    {
+      "Question": "Колку време е потребно на светлината од Сонцето да стигне до Земјата?",
+      "OptionA": "Околу 8 минути",
+      "OptionB": "Околу 1 час",
+      "OptionC": "Околу 24 часа",
+      "OptionD": "Моментално",
+      "CorrectAnswer": "OptionA"
+    },
+    {
+      "Question": "Која планета е позната како 'Црвената планета'?",
+      "OptionA": "Венера",
+      "OptionB": "Јупитер",
+      "OptionC": "Марс",
+      "OptionD": "Меркур",
+      "CorrectAnswer": "OptionC"
+    },
+    {
+      "Question": "Што е Млечниот Пат?",
+      "OptionA": "Соѕвездие",
+      "OptionB": "Галаксијата во која се наоѓа нашиот Сончев систем",
+      "OptionC": "Најголемата ѕвезда во вселената",
+      "OptionD": "Пат од метеори",
+      "CorrectAnswer": "OptionB"
+    },
+    {
+      "Question": "Која планета има најмногу прстени видливи од Земјата?",
+      "OptionA": "Јупитер",
+      "OptionB": "Уран",
+      "OptionC": "Нептун",
+      "OptionD": "Сатурн",
+      "CorrectAnswer": "OptionD"
+    },
+    {
+      "Question": "Што е астероид?",
+      "OptionA": "Мало карпесто тело што кружи околу Сонцето",
+      "OptionB": "Вид на ѕвезда",
+      "OptionC": "Сателит на Јупитер",
+      "OptionD": "Облак од гас",
+      "CorrectAnswer": "OptionA"
+    }
+  ]
+}
