@@ -1,0 +1,68 @@
+{
+  "Questions": [
+    {
+      "Question": "Кој ја измислил електричната сијалица?",
+      "OptionA": "Никола Тесла",
+      "OptionB": "Томас Едисон",
+      "OptionC": "Александар Грејам Бел",
+      "OptionD": "Мајкл Фарадеј",
+      "CorrectAnswer": "OptionB"
+    },
+    {
+      "Question": "Која е хемиската формула на водата?",
+      "OptionA": "CO2",
+      "OptionB": "NaCl",
+      "OptionC": "H2O",
+      "OptionD": "O2",
+      "CorrectAnswer": "OptionC"
+    },
+    {
+      "Question": "Што проучува биологијата?",
+      "OptionA": "Ѕвездите и планетите",
+      "OptionB": "Живите организми",
+      "OptionC": "Хемиските реакции",
+      "OptionD": "Историските настани",
+      "CorrectAnswer": "OptionB"
+    },
+    {
+      "Question": "Кој орган во човечкото тело е одговорен за пумпање на крвта?",
+      "OptionA": "Мозокот",
+      "OptionB": "Белите дробови",
+      "OptionC": "Срцето",
+      "OptionD": "Црниот дроб",
+      "CorrectAnswer": "OptionC"
+    },
+    {
+      "Question": "Што е фотосинтеза?",
+      "OptionA": "Процес на варење храна кај животните",
+      "OptionB": "Процес со кој растенијата произведуваат храна користејќи сончева светлина",
+      "OptionC": "Движење на водата низ почвата",
+      "OptionD": "Испарување на водата од океаните",
+      "CorrectAnswer": "OptionB"
+    },
+    {
+      "Question": "Колку коски има возрасен човек?",
+      "OptionA": "106",
+      "OptionB": "156",
+      "OptionC": "206",
+      "OptionD": "256",
+      "CorrectAnswer": "OptionC"
+    },
+    {
+      "Question": "Кој гас го издишуваме при дишењето?",
+      "OptionA": "Кислород",
+      "OptionB": "Азот",
+      "OptionC": "Јаглерод диоксид",
+      "OptionD": "Хелиум",
+      "CorrectAnswer": "OptionC"
+    },
+    {
+      "Question": "Што е гравитација?",
+      "OptionA": "Сила која ги одбива предметите",
+      "OptionB": "Сила која ги привлекува предметите еден кон друг",
+      "OptionC": "Вид на енергија",
+      "OptionD": "Движење на воздухот",
+      "CorrectAnswer": "OptionB"
+    }
+  ]
+}
