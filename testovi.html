@@ -1,160 +1,632 @@
 <!DOCTYPE html>
-<!-- saved from url=(0056)https://templates.envytheme.com/ketan/default/index.html -->
-<html lang="zxx">
+<html lang="mk">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Забавни интерактивни тестови за проверка на математичко знаење">
 
     <link rel="stylesheet" href="./files/bootstrap.min.css">
     <link rel="stylesheet" href="./files/animate.min.css">
-    <link rel="stylesheet" href="./files/meanmenu.css">
     <link rel="stylesheet" href="./files/boxicons.min.css">
-    <link rel="stylesheet" href="./files/owl.carousel.min.css">
-    <link rel="stylesheet" href="./files/owl.theme.default.min.css">
-    <link rel="stylesheet" href="./files/odometer.min.css">
-    <link rel="stylesheet" href="./files/magnific-popup.min.css">
-    <link rel="stylesheet" href="./files/imagelightbox.min.css">
     <link rel="stylesheet" href="./files/style.css">
     <link rel="stylesheet" href="./files/responsive.css">
+    
+    <style>
+        :root {
+            --primary-color: #b19cd9;
+            --secondary-color: #ffb3d9;
+            --success-color: #b3e5b3;
+            --info-color: #b3d9ff;
+            --warning-color: #ffe6b3;
+            --danger-color: #ffb3b3;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0e6f6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+            margin-bottom: 3rem;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .edu-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #333;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(177, 156, 217, 0.3);
+        }
+
+        .edu-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(177, 156, 217, 0.4);
+            color: #333;
+            text-decoration: none;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 0 1rem 3rem;
+        }
+
+        .container-fluid {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-section {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #5a4a7a;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid rgba(177, 156, 217, 0.4);
+            display: flex;
+            align-items: center;
+        }
+
+        .category-title i {
+            margin-right: 0.75rem;
+            font-size: 1.8rem;
+        }
+
+        .quiz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .quiz-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quiz-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .quiz-card-header {
+            padding: 1.5rem;
+            background: var(--primary-color);
+            color: #333;
+        }
+
+        .quiz-card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+            line-height: 1.4;
+            color: #333;
+        }
+
+        .quiz-card-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quiz-link {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            background: var(--secondary-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            margin-top: auto;
+            font-size: 0.95rem;
+        }
+
+        .quiz-link:hover {
+            background: var(--primary-color);
+            transform: scale(1.05);
+            color: white;
+            text-decoration: none;
+        }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .intro-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .featured-quiz {
+            background: #e6f5f5;
+            border: none;
+        }
+
+        .featured-quiz .quiz-card-header {
+            background: var(--info-color);
+        }
+
+        .featured-quiz.quiz-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .footer {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem 0;
+            margin-top: auto;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .footer-content {
+            text-align: center;
+            color: #666;
+        }
+
+        .footer-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .quiz-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+
+            .category-title {
+                font-size: 1.2rem;
+            }
+
+            .header {
+                padding: 1.5rem 0;
+                margin-bottom: 2rem;
+            }
+
+            .main-content {
+                padding: 0 0.75rem 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.4rem;
+            }
+
+            .quiz-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .edu-button {
+                display: block;
+            }
+        }
+
+        .breadcrumb-nav {
+            background: transparent;
+            padding: 0;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb-nav a {
+            color: #6b5a8a;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .breadcrumb-nav a:hover {
+            color: #b19cd9;
+        }
+    </style>
 
     <title>Срна - забавни тестови</title>
     <link rel="icon" type="image/png" href="./files/favicon.png">
 </head>
 
-<body data-new-gr-c-s-check-loaded="14.1043.0" data-gr-ext-installed="">
-    <div class="main-banner" id="kvizovi">
-        <h1 class="testovi-h1">ЗАБАВНИ ТЕСТОВИ ЗА ПРОВЕРКА НА ЗНАЕЊЕ</h1>
-		<div class="kvizovi-link">
-			<a class="optional-btn" style="background-color: purple" href="https://edu.ida.mk">EDU.IDA тестови по сите предмети</a>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="container-fluid">
+            <div class="header-content">
+                <h1>🎓 Забавни Тестови за Знаење</h1>
+                <p>Интерактивни математички вежби за сите нивоа</p>
+                <a href="https://edu.ida.mk" class="edu-button">EDU.IDA - Тестови по сите предмети</a>
+            </div>
         </div>
-        <div class="favourite-books">
-            <div class="d-table">
-                <div class="d-table-cell">
-                    <div class="container-fluid">
-                        <div class="row align-items-center">
-                            <div class="col-lg-12 who-we-are-content">
-                                <span>Собирање и одземање</span>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz/index.html">Собирање, одземање, множење и делење</a>
-                                </div>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-addition-level-1/index.html">Собирање, Ниво 1 (xx+x)</a>
-                                </div>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-addition-level-2/index.html">Собирање, Ниво 2 (xx+xx)</a>
-                                </div>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-addition-level-3/index.html">Собирање, Ниво 3 (xxх+xxх)</a>
-                                </div>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-subtraction-level-1/index.html">Одземање, Ниво 1 (xx-x)</a>
-                                </div>  
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-subtraction-level-2/index.html">Одземање, Ниво 2 (xx-xx)</a>
-                                </div>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-subtraction-level-3/index.html">Одземање, Ниво 3 (xxх-xxх)</a>
-                                </div>
-                                <span>Задачи со една непозната</span>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-subtraction-level-2-nepoznat-namalitel/index.html">Непознат намалител</a>
-                                </div>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-subtraction-level-2-nepoznat-namalеnik/index.html">Непознат намаленик</a>
-                                </div> 
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-addition-level-2-nepoznat-sobirok/index.html">Непознат собирок</a>
-                                </div>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-edna-nepoznata-random/index.html">Една непозната (микс)</a>
-                                </div>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-edna-nepoznata-random-level-2/index.html">Една непозната (микс-ниво 2)</a>
-                                </div>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-edna-nepoznata-random-level-2-slow/index.html">Една непозната (микс-ниво 2 slow)</a>
-                                </div>
-                                <span>Множење и делење</span>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-multiplication-xx-x/">Множење (xx*x)</a>
-                                </div>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-multiplication/index.html">Множење, 1 до 10</a>
-                                </div>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-multiplication-to-five/index.html">Множење, 1 до 5</a>
-                                </div>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-division/index.html">Делење</a>
-                                </div>
-                                <span>Удвојување и преполовување</span>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-multiplication-by-2-level-1/index.html">Удвојување (ниво 1)</a>
-                                </div>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-multiplication-by-2-level-2/index.html">Удвојување (ниво 2)</a>
-                                </div>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-multiplication-by-2-level-3/index.html">Удвојување (ниво 3)</a>
-                                </div>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-division-by2-level-1/index.html">Преполовување (ниво 1)</a>
-                                </div>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-division-by2-level-2/index.html">Преполовување (ниво 2)</a>
-                                </div>
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/math-quiz-division-by2-level-3/index.html">Преполовување (ниво 3)</a>
-                                </div>
-                                <span>Демо</span>     
-                                <div class="kvizovi-link">
-                                    <a class="optional-btn" href="./kvizovi/money-quizes/money-quiz-level-1/index.html">Демо: Плаќање со монети</a>
-                                </div>                          
-                            </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container-fluid">
+            <!-- Featured Quiz Section -->
+            <div class="intro-section">
+                <h2>Добредојдовте!</h2>
+                <p>Избери категорија и почни да се забавуваш додека вежбаш математика. Секој квиз е дизајниран за различно ниво на вештина.</p>
+            </div>
+
+            <!-- Addition and Subtraction Section -->
+            <div class="category-section">
+                <div class="category-title">
+                    <i class="bx bx-math"></i>
+                    Собирање и Одземање
+                </div>
+                <div class="quiz-grid">
+                    <div class="quiz-card featured-quiz">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Комбинирано</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Собирање, одземање, множење и делење сите заедно</p>
+                            <a href="./kvizovi/math-quiz/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Собирање - Ниво 1</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Собирање двоцифрени и едноцифрени броеви (xx+x)</p>
+                            <a href="./kvizovi/math-quiz-addition-level-1/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Собирање - Ниво 2</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Собирање два двоцифрени броеви (xx+xx)</p>
+                            <a href="./kvizovi/math-quiz-addition-level-2/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Собирање - Ниво 3</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Собирање три трицифрени броеви (xxx+xxx)</p>
+                            <a href="./kvizovi/math-quiz-addition-level-3/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Одземање - Ниво 1</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Одземање едноцифрени од двоцифрени (xx-x)</p>
+                            <a href="./kvizovi/math-quiz-subtraction-level-1/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Одземање - Ниво 2</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Одземање двоцифрени од двоцифрени (xx-xx)</p>
+                            <a href="./kvizovi/math-quiz-subtraction-level-2/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Одземање - Ниво 3</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Одземање трицифрени броеви (xxx-xxx)</p>
+                            <a href="./kvizovi/math-quiz-subtraction-level-3/index.html" class="quiz-link">Почни</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div>
-            Врати се на <a href="https://srna.mk">почетната страна.</a>
-        </div>
-    </div>
 
+            <!-- Equations with Unknown Section -->
+            <div class="category-section">
+                <div class="category-title">
+                    <i class="bx bx-code-block"></i>
+                    Задачи со Една Непозната
+                </div>
+                <div class="quiz-grid">
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Непознат Намалител</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Пронајди непознат намалител: ? - x = y</p>
+                            <a href="./kvizovi/math-quiz-subtraction-level-2-nepoznat-namalitel/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
 
-    <div class="copyright-area">
-        <div class="container">
-            <div class="copyright-area-content">
-                <p>
-                    Copyright © 2025 Тато & Срна
-                </p>
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Непознат Намаленик</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Пронајди непознат намаленик: x - ? = y</p>
+                            <a href="./kvizovi/math-quiz-subtraction-level-2-nepoznat-namalеnik/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Непознат Собирок</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Пронајди непознат собирок: x + ? = y</p>
+                            <a href="./kvizovi/math-quiz-addition-level-2-nepoznat-sobirok/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Една Непозната - Микс</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Мешани задачи со една непозната</p>
+                            <a href="./kvizovi/math-quiz-edna-nepoznata-random/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Една Непозната - Ниво 2</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Побарувачни задачи со една непозната</p>
+                            <a href="./kvizovi/math-quiz-edna-nepoznata-random-level-2/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Една Непозната - Слоw</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Полесна верзија од ниво 2</p>
+                            <a href="./kvizovi/math-quiz-edna-nepoznata-random-level-2-slow/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Multiplication and Division Section -->
+            <div class="category-section">
+                <div class="category-title">
+                    <i class="bx bx-intersect"></i>
+                    Множење и Делење
+                </div>
+                <div class="quiz-grid">
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Множење - Основно</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Множење двоцифрени броеви (xx*x)</p>
+                            <a href="./kvizovi/math-quiz-multiplication-xx-x/" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Множење 1-10</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Таблица множења од 1 до 10</p>
+                            <a href="./kvizovi/math-quiz-multiplication/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Множење 1-5</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Таблица множења од 1 до 5</p>
+                            <a href="./kvizovi/math-quiz-multiplication-to-five/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Делење</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Делење - инверзна операција на множење</p>
+                            <a href="./kvizovi/math-quiz-division/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Doubling and Halving Section -->
+            <div class="category-section">
+                <div class="category-title">
+                    <i class="bx bx-shuffle"></i>
+                    Удвојување и Преполовување
+                </div>
+                <div class="quiz-grid">
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Удвојување - Ниво 1</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Множење со 2 - почетни вежби</p>
+                            <a href="./kvizovi/math-quiz-multiplication-by-2-level-1/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Удвојување - Ниво 2</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Множење со 2 - средно ниво</p>
+                            <a href="./kvizovi/math-quiz-multiplication-by-2-level-2/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Удвојување - Ниво 3</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Множење со 2 - напредно ниво</p>
+                            <a href="./kvizovi/math-quiz-multiplication-by-2-level-3/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Преполовување - Ниво 1</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Делење со 2 - почетни вежби</p>
+                            <a href="./kvizovi/math-quiz-division-by2-level-1/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Преполовување - Ниво 2</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Делење со 2 - средно ниво</p>
+                            <a href="./kvizovi/math-quiz-division-by2-level-2/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Преполовување - Ниво 3</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Делење со 2 - напредно ниво</p>
+                            <a href="./kvizovi/math-quiz-division-by2-level-3/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo Section -->
+            <div class="category-section">
+                <div class="category-title">
+                    <i class="bx bx-demo"></i>
+                    Демо
+                </div>
+                <div class="quiz-grid">
+                    <div class="quiz-card">
+                        <div class="quiz-card-header">
+                            <h3 class="quiz-card-title">Плаќање со Монети</h3>
+                        </div>
+                        <div class="quiz-card-body">
+                            <p style="color: #666; flex: 1;">Научи да плаќаш со монети - демо верзија</p>
+                            <a href="./kvizovi/money-quizes/money-quiz-level-1/index.html" class="quiz-link">Почни</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Back -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://srna.mk" class="breadcrumb-nav">← Врати се на почетната страна</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container-fluid">
+            <div class="footer-content">
+                <p>Copyright © 2025 Тато & Срна | <a href="https://srna.mk" class="footer-link">srna.mk</a></p>
             </div>
         </div>
     </div>
 
-
-    <div class="go-top">
-        <i class="bx bx-up-artrow-al"></i>
-    </div>
-
-
     <script src="./files/jquery.min.js"></script>
     <script src="./files/popper.min.js"></script>
     <script src="./files/bootstrap.min.js"></script>
-    <script src="./files/jquery.meanmenu.js"></script>
-    <script src="./files/owl.carousel.min.js"></script>
-    <script src="./files/jquery.magnific-popup.min.js"></script>
-    <script src="./files/imagelightbox.min.js"></script>
-    <script src="./files/odometer.min.js"></script>
-    <script src="./files/jquery.appear.min.js"></script>
-    <script src="./files/jquery.ajaxchimp.min.js"></script>
-    <script src="./files/form-validator.min.js"></script>
-    <script src="./files/contact-form-script.js"></script>
-    <script src="./files/main.js"></script>
 
+    <!-- Scroll to Top Functionality -->
+    <script>
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
