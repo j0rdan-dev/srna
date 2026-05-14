@@ -1,7 +1,7 @@
-const DENOMINATORS = [2, 5, 10, 100];
-const DECIMAL_DENOMINATORS = [2, 5, 10, 100];
+const DENOMINATORS = [2, 5, 10, 20];
+const DECIMAL_DENOMINATORS = [2, 5, 10, 20];
 const VISUAL_TYPES = ["square", "pie"];
-const PIE_MAX_DENOMINATOR = 10;
+const PIE_MAX_DENOMINATOR = 20;
 const questionCard = document.querySelector(".question-card");
 
 function nextQuestion() {
@@ -30,7 +30,7 @@ function nextQuestion() {
 function generateFractionToFractionQuestion() {
     const visualType = pickVisualType();
     const allowedDenominators = getAllowedDenominators(visualType, "fraction");
-    const f = createRandomFraction(allowedDenominators);
+    const f = createRandomFraction(allowedDenominators, { preferNonHalf: visualType === "pie" });
     const correct = formatFraction(f);
     answer = correct;
     setQuestionTheme("fraction");
@@ -42,7 +42,7 @@ function generateFractionToFractionQuestion() {
 
     const options = new Set([correct]);
     while (options.size < 4) {
-        const wrong = createRandomFraction(allowedDenominators);
+        const wrong = createRandomFraction(allowedDenominators, { preferNonHalf: visualType === "pie" });
         const wrongLabel = formatFraction(wrong);
         if (wrongLabel !== correct && Math.abs(f.value - wrong.value) > 0.0001) {
             options.add(wrongLabel);
@@ -55,7 +55,7 @@ function generateFractionToFractionQuestion() {
 function generateFractionToDecimalQuestion() {
     const visualType = pickVisualType();
     const allowedDenominators = getAllowedDenominators(visualType, "decimal");
-    const f = createRandomFraction(allowedDenominators);
+    const f = createRandomFraction(allowedDenominators, { preferNonHalf: visualType === "pie" });
     const correct = formatDecimal(f.value);
     answer = correct;
     setQuestionTheme("decimal");
@@ -90,16 +90,16 @@ function generateComparisonQuestion() {
 
     if (comparisonType === 0) {
         // Equal fractions represented differently.
-        left = createRandomFraction(allowedDenominators);
+        left = createRandomFraction(allowedDenominators, { preferNonHalf: visualType === "pie" });
         right = createEquivalentFraction(left, allowedDenominators);
         correctSign = "=";
     } else {
-        left = createRandomFraction(allowedDenominators);
-        right = createRandomFraction(allowedDenominators);
+        left = createRandomFraction(allowedDenominators, { preferNonHalf: visualType === "pie" });
+        right = createRandomFraction(allowedDenominators, { preferNonHalf: visualType === "pie" });
 
         let guard = 0;
         while (Math.abs(left.value - right.value) < 0.03 && guard < 100) {
-            right = createRandomFraction(allowedDenominators);
+            right = createRandomFraction(allowedDenominators, { preferNonHalf: visualType === "pie" });
             guard += 1;
         }
 
@@ -110,20 +110,48 @@ function generateComparisonQuestion() {
 
     question.innerHTML = `
         <div class="fq-title tiny-prompt">Одбери го точниот знак меѓу двете дропки</div>
-        <div class="fraction-wrap">
+        <div class="fraction-wrap compare-layout">
             ${renderFractionCard(left, "", visualType)}
             <div class="comparison-sign-box" aria-hidden="true">?</div>
             ${renderFractionCard(right, "", visualType)}
         </div>
     `;
 
-    const options = [">", "<", "=", "≠"];
+    const options = [">", "<", "="];
     assignOptions(options, correctSign);
 }
 
-function createRandomFraction(allowedDenominators = DENOMINATORS) {
-    const denominator = allowedDenominators[Math.floor(Math.random() * allowedDenominators.length)];
-    const numerator = Math.floor(Math.random() * (denominator - 1)) + 1;
+function createRandomFraction(allowedDenominators = DENOMINATORS, options = {}) {
+    let denominatorPool = allowedDenominators;
+
+    if (options.preferNonHalf) {
+        const noTwoPool = denominatorPool.filter((d) => d !== 2);
+        if (noTwoPool.length > 0) {
+            denominatorPool = noTwoPool;
+        }
+    }
+
+    const denominator = denominatorPool[Math.floor(Math.random() * denominatorPool.length)];
+    let numeratorPool = [];
+    for (let n = 1; n < denominator; n += 1) {
+        numeratorPool.push(n);
+    }
+
+    if (options.preferNonHalf && denominator % 2 === 0) {
+        numeratorPool = numeratorPool.filter((n) => n * 2 !== denominator);
+    }
+
+    // Avoid very common boundary slices (1 part or all-but-1 part) for pie visuals.
+    if (options.preferNonHalf && denominator >= 10) {
+        numeratorPool = numeratorPool.filter((n) => n !== 1 && n !== denominator - 1);
+    }
+
+    let numerator = numeratorPool[Math.floor(Math.random() * numeratorPool.length)];
+
+    if (!numerator) {
+        numerator = Math.floor(Math.random() * (denominator - 1)) + 1;
+    }
+
     return {
         numerator,
         denominator,
@@ -185,6 +213,7 @@ function renderFractionCard(fraction, label, visualType) {
         <div class="fraction-block">
             ${label ? `<div class="fraction-label">${label}</div>` : ""}
             ${renderVisual(fraction, visualType)}
+            <div class="fraction-denominator" aria-hidden="true">n=${fraction.denominator}</div>
         </div>
     `;
 }
@@ -232,7 +261,12 @@ function assignOptions(options, correctOption) {
     const shuffled = shuffle(options.slice());
 
     for (let i = 0; i < buttons.length; i += 1) {
-        buttons[i].textContent = shuffled[i];
+        if (i < shuffled.length) {
+            buttons[i].textContent = shuffled[i];
+            buttons[i].style.display = "block";
+        } else {
+            buttons[i].style.display = "none";
+        }
     }
 
     answer = correctOption;
