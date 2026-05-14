@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800;900&display=swap');
 
 :root {
     --bg-sky: #eaf6ff;
@@ -33,7 +33,7 @@ body {
     align-items: center;
     padding: 1rem;
     color: var(--ink);
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Rubik', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
@@ -68,7 +68,7 @@ body {
 #in-game h1,
 #end-game h1,
 .question-card h1 {
-    font-family: 'Nunito', 'Avenir Next', 'Segoe UI', sans-serif;
+    font-family: 'Rubik', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 900;
     letter-spacing: 0.01em;
 }
@@ -141,7 +141,7 @@ body {
     font-size: clamp(1.1rem, 3.7vw, 1.55rem);
     font-weight: 800;
     color: #ffffff;
-    font-family: 'Nunito', 'Avenir Next', 'Segoe UI', sans-serif;
+    font-family: 'Rubik', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     background: linear-gradient(180deg, #6074ea 0%, var(--primary) 100%);
     box-shadow: 0 12px 24px rgba(79, 98, 216, 0.3);
     transition: transform 0.2s ease, background 0.2s ease;
@@ -210,7 +210,7 @@ body {
 }
 
 h3 {
-    font-family: 'Nunito', 'Avenir Next', 'Segoe UI', sans-serif;
+    font-family: 'Rubik', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 800;
     font-size: 1.22rem;
     margin: 0.35rem 0 0.1rem;
@@ -262,7 +262,7 @@ button:hover {
 }
 
 #end-game h2 {
-    font-family: 'Nunito', 'Avenir Next', 'Segoe UI', sans-serif;
+    font-family: 'Rubik', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 900;
     margin: 0.2rem auto 0.65rem;
     color: #334d84;
