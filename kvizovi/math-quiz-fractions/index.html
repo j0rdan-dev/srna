@@ -14,11 +14,11 @@
     <style>
         .question-card {
             padding: 0.9rem;
-            --cell-fill-start: #66a8e7;
-            --cell-fill-end: #4f62d8;
-            --cell-fill-border: #5e78c6;
-            --pie-fill: #4f62d8;
-            --pie-rest: #ecf2ff;
+            --cell-fill-start: #74b9ff;
+            --cell-fill-end: #4f7cf7;
+            --cell-fill-border: #4b6fdb;
+            --pie-fill: #4f7cf7;
+            --pie-rest: #edf3ff;
         }
 
         #question {
@@ -50,13 +50,42 @@
             margin-top: 0.2rem;
         }
 
+        .fraction-wrap.compare-layout {
+            display: grid;
+            grid-template-columns: minmax(84px, 1fr) auto minmax(84px, 1fr);
+            align-items: center;
+            gap: 0.45rem;
+            width: 100%;
+        }
+
+        .fraction-wrap.compare-layout .fraction-block {
+            min-width: 0;
+            max-width: none;
+            width: 100%;
+        }
+
         .fraction-block {
+            position: relative;
             min-width: 160px;
             max-width: 220px;
             padding: 0.55rem;
             border-radius: 12px;
             border: 2px solid #d8e6fb;
             background: #ffffff;
+        }
+
+        .fraction-denominator {
+            position: absolute;
+            right: 6px;
+            bottom: 6px;
+            font-size: 0.62rem;
+            font-weight: 700;
+            line-height: 1;
+            color: #3e5a94;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #c6d7f6;
+            border-radius: 8px;
+            padding: 2px 5px;
         }
 
         .fraction-label {
@@ -106,56 +135,56 @@
         }
 
         .question-card.mode-fraction {
-            --cell-fill-start: #7a88ff;
-            --cell-fill-end: #5a43c2;
-            --cell-fill-border: #5e4cc0;
-            --pie-fill: #5a43c2;
-            --pie-rest: #ece8ff;
-            border-color: #d6ccff;
-            background: linear-gradient(180deg, #fcfbff 0%, #f2eeff 100%);
+            --cell-fill-start: #ff97d8;
+            --cell-fill-end: #d667ca;
+            --cell-fill-border: #b955b0;
+            --pie-fill: #d667ca;
+            --pie-rest: #ffeffb;
+            border-color: #f6c9ee;
+            background: linear-gradient(180deg, #fffaff 0%, #fff0fc 100%);
         }
 
         .question-card.mode-fraction .fq-title {
-            color: #4b3ca7;
+            color: #9d2f88;
         }
 
         .question-card.mode-decimal {
-            --cell-fill-start: #53c0b4;
-            --cell-fill-end: #249389;
-            --cell-fill-border: #2f8f87;
-            --pie-fill: #249389;
-            --pie-rest: #e5faf6;
-            border-color: #bcebe4;
-            background: linear-gradient(180deg, #fafffe 0%, #ecfbf7 100%);
+            --cell-fill-start: #73e6b1;
+            --cell-fill-end: #31b985;
+            --cell-fill-border: #2fa477;
+            --pie-fill: #31b985;
+            --pie-rest: #e9fff3;
+            border-color: #b8f0d3;
+            background: linear-gradient(180deg, #f9fffb 0%, #ebfff2 100%);
         }
 
         .question-card.mode-decimal .fq-title {
-            color: #1d7e76;
+            color: #1a8f63;
         }
 
         .question-card.mode-compare {
-            --cell-fill-start: #f0a954;
-            --cell-fill-end: #de7a2d;
-            --cell-fill-border: #ca6a27;
-            --pie-fill: #de7a2d;
-            --pie-rest: #fff1e5;
-            border-color: #f3d2b3;
-            background: linear-gradient(180deg, #fffdf8 0%, #fff4e8 100%);
+            --cell-fill-start: #9ed5ff;
+            --cell-fill-end: #4ea0e8;
+            --cell-fill-border: #3d8bcf;
+            --pie-fill: #4ea0e8;
+            --pie-rest: #eaf6ff;
+            border-color: #bfe0ff;
+            background: linear-gradient(180deg, #f9fdff 0%, #eef8ff 100%);
         }
 
         .question-card.mode-compare .fq-title,
         .question-card.mode-compare .compare-hint {
-            color: #a8571f;
+            color: #2866a2;
         }
 
         .comparison-sign-box {
-            width: 52px;
-            height: 52px;
+            width: 46px;
+            height: 46px;
             border-radius: 10px;
-            border: 2px dashed #d9985f;
-            background: #fff7ef;
-            color: #bb6b2b;
-            font-size: 1.9rem;
+            border: 2px dashed #6da3d8;
+            background: #eef7ff;
+            color: #2f6ea9;
+            font-size: 1.5rem;
             font-weight: 800;
             display: inline-flex;
             align-items: center;
@@ -184,14 +213,27 @@
             }
 
             .fraction-block {
-                min-width: 140px;
-                max-width: 170px;
+                min-width: 88px;
+                max-width: 118px;
+                padding: 0.4rem;
+            }
+
+            .fraction-wrap.compare-layout {
+                grid-template-columns: minmax(74px, 1fr) auto minmax(74px, 1fr);
+                gap: 0.25rem;
             }
 
             .comparison-sign-box {
-                width: 46px;
-                height: 46px;
-                font-size: 1.7rem;
+                width: 32px;
+                height: 32px;
+                font-size: 1rem;
+            }
+
+            .fraction-denominator {
+                right: 4px;
+                bottom: 4px;
+                font-size: 0.52rem;
+                padding: 2px 4px;
             }
         }
     </style>
