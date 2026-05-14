@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap');
 
 :root {
     --bg-sky: #eaf6ff;
@@ -34,6 +34,10 @@ body {
     padding: 1rem;
     color: var(--ink);
     font-family: 'Nunito', sans-serif;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     background:
         radial-gradient(circle at 12% 15%, #ffffff 0 18%, transparent 18%),
         radial-gradient(circle at 88% 85%, #d8edff 0 20%, transparent 20%),
@@ -64,7 +68,8 @@ body {
 #in-game h1,
 #end-game h1,
 .question-card h1 {
-    font-family: 'Baloo 2', cursive;
+    font-family: 'Nunito', 'Avenir Next', 'Segoe UI', sans-serif;
+    font-weight: 900;
     letter-spacing: 0.01em;
 }
 
@@ -136,7 +141,7 @@ body {
     font-size: clamp(1.1rem, 3.7vw, 1.55rem);
     font-weight: 800;
     color: #ffffff;
-    font-family: 'Baloo 2', cursive;
+    font-family: 'Nunito', 'Avenir Next', 'Segoe UI', sans-serif;
     background: linear-gradient(180deg, #6074ea 0%, var(--primary) 100%);
     box-shadow: 0 12px 24px rgba(79, 98, 216, 0.3);
     transition: transform 0.2s ease, background 0.2s ease;
@@ -205,7 +210,8 @@ body {
 }
 
 h3 {
-    font-family: 'Baloo 2', cursive;
+    font-family: 'Nunito', 'Avenir Next', 'Segoe UI', sans-serif;
+    font-weight: 800;
     font-size: 1.22rem;
     margin: 0.35rem 0 0.1rem;
     color: #3b5185;
@@ -256,7 +262,8 @@ button:hover {
 }
 
 #end-game h2 {
-    font-family: 'Baloo 2', cursive;
+    font-family: 'Nunito', 'Avenir Next', 'Segoe UI', sans-serif;
+    font-weight: 900;
     margin: 0.2rem auto 0.65rem;
     color: #334d84;
     background: #ffffff;
