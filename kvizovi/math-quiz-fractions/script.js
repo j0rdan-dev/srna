@@ -1,4 +1,4 @@
-const DENOMINATORS = [2, 5, 10, 20];
+const DENOMINATORS = [2, 4, 5, 10, 20];
 const DECIMAL_DENOMINATORS = [2, 5, 10, 20];
 const VISUAL_TYPES = ["square", "pie"];
 const PIE_MAX_DENOMINATOR = 20;
